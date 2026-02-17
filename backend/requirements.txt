@@ -1,0 +1,28 @@
+# Core Web Framework
+Flask==3.0.0
+Flask-CORS==4.0.0
+flask-sqlalchemy==3.1.1
+
+# Deep Learning & Computer Vision
+tensorflow==2.16.1
+opencv-python==4.9.0.80
+numpy==1.26.3
+Pillow==10.2.0
+
+# OCR Engines (Primary: EasyOCR, Fallback: Tesseract)
+easyocr>=1.7.0
+pytesseract==0.3.10
+
+# Image Processing
+scikit-image==0.22.0
+
+# Data Export
+pandas==2.1.4
+openpyxl==3.1.2
+
+# Database
+SQLAlchemy==2.0.25
+
+# Utilities
+python-dotenv==1.0.0
+Werkzeug==3.0.1

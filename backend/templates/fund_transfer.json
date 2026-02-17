@@ -1,0 +1,79 @@
+{
+    "name": "Fund Transfer Form",
+    "type": "transfer",
+    "bank_name": "Generic Bank",
+    "description": "Standard fund transfer form template for Indian banks",
+    "fields": [
+        {
+            "id": "source_account",
+            "label": "Source Account Number",
+            "type": "numeric",
+            "validation": "account_number",
+            "required": true,
+            "bbox": {
+                "x": 0.15,
+                "y": 0.20,
+                "width": 0.40,
+                "height": 0.08
+            }
+        },
+        {
+            "id": "destination_account",
+            "label": "Destination Account Number",
+            "type": "numeric",
+            "validation": "account_number",
+            "required": true,
+            "bbox": {
+                "x": 0.15,
+                "y": 0.35,
+                "width": 0.40,
+                "height": 0.08
+            }
+        },
+        {
+            "id": "transfer_amount",
+            "label": "Transfer Amount",
+            "type": "numeric",
+            "validation": "positive_amount",
+            "required": true,
+            "bbox": {
+                "x": 0.60,
+                "y": 0.50,
+                "width": 0.30,
+                "height": 0.08
+            }
+        },
+        {
+            "id": "date",
+            "label": "Date",
+            "type": "date",
+            "format": "DD/MM/YYYY",
+            "required": true,
+            "bbox": {
+                "x": 0.70,
+                "y": 0.15,
+                "width": 0.25,
+                "height": 0.06
+            }
+        },
+        {
+            "id": "reference_number",
+            "label": "Reference Number",
+            "type": "numeric",
+            "validation": "numeric",
+            "required": false,
+            "bbox": {
+                "x": 0.15,
+                "y": 0.70,
+                "width": 0.30,
+                "height": 0.06
+            }
+        }
+    ],
+    "notes": [
+        "This template assumes standard fund transfer form layout",
+        "For NEFT/RTGS transfers, IFSC code field may be required",
+        "Bounding boxes use normalized coordinates (0-1)",
+        "Adjust bbox based on actual form layout"
+    ]
+}

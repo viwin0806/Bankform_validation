@@ -1,0 +1,65 @@
+{
+    "name": "Bank Withdrawal Form",
+    "type": "withdrawal",
+    "bank_name": "Generic Bank",
+    "description": "Standard withdrawal form template for Indian banks",
+    "fields": [
+        {
+            "id": "account_number",
+            "label": "Account Number",
+            "type": "numeric",
+            "validation": "account_number",
+            "required": true,
+            "bbox": {
+                "x": 0.15,
+                "y": 0.25,
+                "width": 0.40,
+                "height": 0.08
+            }
+        },
+        {
+            "id": "withdrawal_amount",
+            "label": "Withdrawal Amount",
+            "type": "numeric",
+            "validation": "positive_amount",
+            "required": true,
+            "bbox": {
+                "x": 0.60,
+                "y": 0.40,
+                "width": 0.30,
+                "height": 0.08
+            }
+        },
+        {
+            "id": "date",
+            "label": "Date",
+            "type": "date",
+            "format": "DD/MM/YYYY",
+            "required": true,
+            "bbox": {
+                "x": 0.70,
+                "y": 0.15,
+                "width": 0.25,
+                "height": 0.06
+            }
+        },
+        {
+            "id": "cheque_number",
+            "label": "Cheque Number (if applicable)",
+            "type": "numeric",
+            "validation": "numeric",
+            "required": false,
+            "bbox": {
+                "x": 0.15,
+                "y": 0.55,
+                "width": 0.30,
+                "height": 0.06
+            }
+        }
+    ],
+    "notes": [
+        "This template assumes standard withdrawal form layout",
+        "Bounding boxes use normalized coordinates (0-1)",
+        "Adjust bbox values based on actual form layout"
+    ]
+}

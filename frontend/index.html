@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BankForm-AI | Intelligent Banking Form Processing</title>
+    <meta name="description" content="AI-powered banking challan processing system for automatic form data extraction">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                    <h1>BankForm<span class="highlight">-AI</span></h1>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active">Process Forms</a>
+                    <a href="dashboard.html" class="nav-link">Dashboard</a>
+                    <a href="#stats" class="nav-link">Statistics</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    AI-Powered Form Processing
+                </div>
+                <h2 class="hero-title">
+                    Transform Banking Challans<br>
+                    Into <span class="gradient-text">Digital Data</span>
+                </h2>
+                <p class="hero-subtitle">
+                    Automatically extract handwritten digits from deposit slips, withdrawal forms,
+                    and fund transfers with industry-leading accuracy.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Application -->
+    <main class="main">
+        <div class="container">
+            <!-- Upload Section -->
+            <div class="upload-section">
+                <div class="form-selector">
+                    <label class="form-label">Select Form Type</label>
+                    <div class="template-grid" id="templateGrid">
+                        <!-- Templates loaded dynamically -->
+                    </div>
+                    <div class="switch-container">
+                        <label class="switch">
+                            <input type="checkbox" id="useTemplate">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="switch-label">Use template-based extraction</span>
+                    </div>
+                </div>
+
+                <div class="upload-card" id="uploadCard">
+                    <div class="upload-area" id="uploadArea">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <h3 class="upload-title">Drop your challan here</h3>
+                        <p class="upload-subtitle">or click to browse</p>
+                        <p class="upload-formats">Supports: PNG, JPG, JPEG, PDF, TIFF</p>
+                        <input type="file" id="fileInput" accept=".png,.jpg,.jpeg,.pdf,.tiff" hidden>
+                    </div>
+                    
+                    <div class="upload-preview hidden" id="uploadPreview">
+                        <img id="previewImage" alt="Uploaded form">
+                        <button class="btn-remove" id="removeBtn">&times;</button>
+                    </div>
+                </div>
+
+                <button class="btn-primary" id="processBtn" disabled>
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    Process Form
+                </button>
+            </div>
+
+            <!-- Processing Status -->
+            <div class="processing-status hidden" id="processingStatus">
+                <div class="spinner"></div>
+                <p class="processing-text">Processing form... Please wait</p>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section hidden" id="resultsSection">
+                <div class="results-header">
+                    <h2 class="results-title">Extraction Results</h2>
+                    <div class="confidence-badge" id="confidenceBadge">
+                        <span class="confidence-dot"></span>
+                        <span class="confidence-text" id="confidenceText">High Confidence</span>
+                        <span class="confidence-value" id="confidenceValue">98%</span>
+                    </div>
+                </div>
+
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Results loaded dynamically -->
+                </div>
+
+                <div class="results-actions">
+                    <button class="btn-secondary" id="exportCsvBtn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Export CSV
+                    </button>
+                    <button class="btn-secondary" id="exportJsonBtn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                        </svg>
+                        Export JSON
+                    </button>
+                    <button class="btn-secondary" id="exportExcelBtn">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                            <polyline points="13 2 13 9 20 9"/>
+                        </svg>
+                        Export Excel
+                    </button>
+                    <button class="btn-primary" id="processAnotherBtn">Process Another Form</button>
+                </div>
+            </div>
+
+            <!-- Statistics Section -->
+            <div class="stats-section" id="statsSection">
+                <h2 class="section-title">Processing Statistics</h2>
+                <div class="stats-grid" id="statsGrid">
+                    <div class="stat-card">
+                        <div class="stat-icon green">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <p class="stat-label">Total Processed</p>
+                            <p class="stat-value" id="statTotal">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <p class="stat-label">Average Confidence</p>
+                            <p class="stat-value" id="statConfidence">0%</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon gold">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <p class="stat-label">Auto-Approved</p>
+                            <p class="stat-value" id="statApproved">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 BankForm-AI. Powered by Deep Learning & Computer Vision.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
