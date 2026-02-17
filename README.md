@@ -396,10 +396,5 @@ Contributions are welcome! Please feel free to submit issues and pull requests.
 
 For issues and questions:
 - Create an issue on GitHub
-- Email: support@bankform-ai.example
+- Email: viwinrajamanickam@gmail.com
 
----
-
-**Built with ❤️ for making banking operations smarter and faster!**
-
-🎉 **Happy Processing!** 🏦
