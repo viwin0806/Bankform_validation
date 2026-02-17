@@ -90,6 +90,14 @@ All test images are:
 - **Style**: Arial font, various styles
 - **Rotation**: Clean, 10°, and centered variants
 
+## 🎯  sample Image 
+
+
+<img width="289" height="345" alt="Screenshot 2026-02-16 113619" src="https://github.com/user-attachments/assets/6e07b3d1-5a30-4057-be4e-d3225e05380d" />
+
+<img width="289" height="338" alt="Screenshot 2026-02-16 113627" src="https://github.com/user-attachments/assets/eb5a7996-c1b0-483b-93a9-037316f45f0a" />
+
+
 ---
 
 ## 📝 Next Steps
