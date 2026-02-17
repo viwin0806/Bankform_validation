@@ -4,7 +4,6 @@
 
 Transform handwritten banking forms into digital data using state-of-the-art deep learning and computer vision. BankForm-AI automates the extraction of digits from deposit slips, withdrawal forms, and fund transfer documents with industry-leading accuracy.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.12+-orange.svg)
 ![Flask](https://img.shields.io/badge/Flask-2.3+-green.svg)
@@ -382,13 +381,7 @@ pytest test_ocr.py -v
 
 Contributions are welcome! Please feel free to submit issues and pull requests.
 
----
 
-## 📝 License
-
-This project is licensed under the MIT License.
-
----
 
 ## 🙏 Acknowledgments
 
